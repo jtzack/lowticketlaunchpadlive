@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #f8f4e9; color: #333333; }
+.bg-cream { background-color: #f8f4e9; background-image: url('/images/paper-texture.png'); background-size: 800px; }
