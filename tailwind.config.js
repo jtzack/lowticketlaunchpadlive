@@ -4,19 +4,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#f8f4e9',
-        dark: '#2f2e2b',
-        'dark-deep': '#1c2220',
-        orange: '#f35a1f',
-        yellow: '#ffe27a',
+        cream: '#F7F5ED',
+        dark: '#272727',
+        'dark-deep': '#000000',
+        blue: '#87B8F8',
+        'blue-dark': '#5F85B6',
+        yellow: '#F9E35D',
       },
       fontFamily: {
-        display: ['Montserrat', 'sans-serif'],
+        display: ['Fjalla One', 'sans-serif'],
         serif: ['Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         page: '960px',
+        wide: '1120px',
+      },
+      keyframes: {
+        ticker: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        ticker: 'ticker 30s linear infinite',
       },
     },
   },
