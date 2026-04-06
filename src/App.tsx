@@ -200,19 +200,19 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
 
         {/* Right column — instructor photo cards */}
         <div className="flex-1 flex justify-center md:justify-end">
-          <div className="relative w-[320px] h-[360px] md:w-[380px] md:h-[420px]">
+          <div className="relative w-[320px] h-[380px] md:w-[380px] md:h-[440px]">
             <div className="absolute left-0 top-0 w-[190px] md:w-[220px] -rotate-3 z-10">
-              <div className="bg-blue-dark rounded-lg overflow-hidden border-2 border-blue-dark">
+              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
                 <img src="/images/cole.png" alt="Nicolas Cole" className="w-full h-[240px] md:h-[290px] object-cover object-top" />
               </div>
-              <span className="block font-sans text-[13px] text-white/50 mt-2 text-center">Nicolas Cole</span>
             </div>
             <div className="absolute right-0 top-10 w-[190px] md:w-[220px] rotate-2 z-20">
-              <div className="bg-blue-dark rounded-lg overflow-hidden border-2 border-blue-dark">
+              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
                 <img src="/images/dickie.png" alt="Dickie Bush" className="w-full h-[240px] md:h-[290px] object-cover object-top" />
               </div>
-              <span className="block font-sans text-[13px] text-white/50 mt-2 text-center">Dickie Bush</span>
+              <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Dickie Bush</span>
             </div>
+            <span className="absolute left-0 top-[268px] md:top-[318px] w-[190px] md:w-[220px] -rotate-3 z-30 block font-sans text-[13px] text-white/60 text-center pointer-events-none">Nicolas Cole</span>
           </div>
         </div>
       </div>
