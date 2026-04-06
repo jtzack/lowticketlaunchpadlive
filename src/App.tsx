@@ -212,7 +212,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
               </div>
               <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Dickie Bush</span>
             </div>
-            <span className="absolute left-0 top-[268px] md:top-[318px] w-[190px] md:w-[220px] -rotate-3 z-30 block font-sans text-[13px] text-white/60 text-center pointer-events-none">Nicolas Cole</span>
+            <span className="absolute left-0 top-[248px] md:top-[298px] w-[190px] md:w-[220px] -rotate-3 z-30 block font-sans text-[13px] text-white/60 text-center pointer-events-none">Nicolas Cole</span>
           </div>
         </div>
       </div>
