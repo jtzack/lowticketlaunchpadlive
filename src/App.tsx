@@ -176,7 +176,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
           </p>
 
           {/* Headline — outcome / transformation */}
-          <h1 className="font-display text-[clamp(40px,4.8vw,60px)] text-white uppercase leading-[0.95] tracking-tight mb-5">
+          <h1 className="font-display text-[clamp(46px,4.8vw,60px)] text-white uppercase leading-[0.95] tracking-tight mb-5">
             How To Create & Sell A <span className="text-yellow">$350 Digital Product</span> In 14 Days
           </h1>
 
