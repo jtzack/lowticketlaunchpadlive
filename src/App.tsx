@@ -66,7 +66,7 @@ function CountdownTimer({ targetDate, centered, variant, compact }: { targetDate
   ]
 
   return (
-    <div className={`flex gap-3 mt-4${centered ? ' justify-center' : ''}`}>
+    <div className={`inline-flex gap-3 mt-4${centered ? ' justify-center' : ''}`}>
       {units.map((u) => (
         <div key={u.label} className="flex flex-col items-center">
           <span className={`font-sans text-[22px] font-bold leading-none rounded px-2.5 py-1.5 min-w-[44px] text-center tabular-nums ${variant === 'yellow' ? 'bg-yellow text-black' : 'bg-white text-black'}`}>
@@ -145,10 +145,10 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
   return (
     <section className="min-h-[90vh] bg-black relative overflow-hidden">
       {/* Top announcement pill */}
-      <div className="flex justify-center pt-6 pb-4">
-        <div className="inline-flex items-center gap-2 border border-white/20 rounded-full px-5 py-2">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="font-sans text-[12px] text-white/80 uppercase tracking-[0.12em]">2-Week Bootcamp Kicks Off Monday, April 27</span>
+      <div className="flex justify-center pt-6 pb-4 px-3">
+        <div className="inline-flex items-center gap-2 border border-white/20 rounded-full px-4 md:px-5 py-2">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+          <span className="font-sans text-[10px] md:text-[12px] text-white/80 uppercase tracking-[0.08em] md:tracking-[0.12em] whitespace-nowrap">2-Week Bootcamp Kicks Off Monday, April 27</span>
         </div>
       </div>
 
@@ -167,23 +167,24 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
         </svg>
       </div>
 
-      <div className="max-w-wide mx-auto px-5 md:px-6 py-12 md:py-16 flex flex-col md:flex-row items-center gap-10 md:gap-12 w-full relative z-10">
+      <div className="max-w-wide mx-auto px-4 md:px-6 py-12 md:py-16 flex flex-col md:flex-row md:items-center gap-10 md:gap-12 w-full relative z-10">
         {/* Left column — text */}
-        <div className="flex-1 md:max-w-[62%]">
-          {/* Brand name — dominant */}
-          <p className="font-display text-[clamp(40px,6vw,72px)] text-white uppercase leading-[0.95] tracking-tight">
-            Low-Ticket
-          </p>
-          <p className="font-display text-[clamp(40px,6vw,72px)] text-white uppercase leading-[0.95] tracking-tight mb-4">
-            Launchpad <span className="text-yellow">Live</span>
+        <div className="flex-1 md:max-w-[62%] text-center md:text-left">
+          {/* Pre-headline — product name */}
+          <p className="font-sans text-[12px] md:text-[13px] font-bold text-yellow uppercase tracking-[0.25em] mb-5">
+            Low-Ticket Launchpad Live
           </p>
 
-          {/* Subtitle */}
-          <h1 className="font-serif text-[clamp(18px,2.2vw,28px)] text-white/70 leading-snug max-w-[500px] mb-2">
-            How To Create & Sell A <span className="text-yellow font-bold">$350 Digital Product</span> In <span className="text-yellow font-bold">14 Days</span>
+          {/* Headline — outcome / transformation */}
+          <h1 className="font-display text-[clamp(40px,4.8vw,60px)] text-white uppercase leading-[0.95] tracking-tight mb-5">
+            How To Create & Sell A<br />
+            <span className="text-yellow">$350 Digital Product</span><br />
+            In 14 Days
           </h1>
-          <p className="font-sans text-[14px] text-white/55 max-w-[480px]">
-            Solve a specific problem. Package the solution. And productize yourself to make money online forever.
+
+          {/* Subhead */}
+          <p className="font-serif text-[clamp(16px,1.7vw,21px)] text-white/65 leading-snug max-w-[540px] mx-auto md:mx-0">
+            Solve a specific problem. Package the solution. Productize yourself to make money online forever.
           </p>
 
           <a
