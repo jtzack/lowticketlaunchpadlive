@@ -167,7 +167,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
         </svg>
       </div>
 
-      <div className="max-w-wide mx-auto px-5 md:px-6 py-12 md:py-16 flex flex-col md:flex-row md:items-center gap-10 md:gap-12 w-full relative z-10">
+      <div className="max-w-wide mx-auto px-4 md:px-6 py-12 md:py-16 flex flex-col md:flex-row md:items-center gap-10 md:gap-12 w-full relative z-10">
         {/* Left column — text */}
         <div className="flex-1 md:max-w-[62%] text-center md:text-left">
           {/* Pre-headline — product name */}
@@ -176,7 +176,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
           </p>
 
           {/* Headline — outcome / transformation */}
-          <h1 className="font-display text-[clamp(36px,4.8vw,60px)] text-white uppercase leading-[0.95] tracking-tight mb-5">
+          <h1 className="font-display text-[clamp(40px,4.8vw,60px)] text-white uppercase leading-[0.95] tracking-tight mb-5">
             How To Create & Sell A<br />
             <span className="text-yellow">$350 Digital Product</span><br />
             In 14 Days
