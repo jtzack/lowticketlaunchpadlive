@@ -145,10 +145,10 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
   return (
     <section className="min-h-[90vh] bg-black relative overflow-hidden">
       {/* Top announcement pill */}
-      <div className="flex justify-center pt-6 pb-4">
-        <div className="inline-flex items-center gap-2 border border-white/20 rounded-full px-5 py-2">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="font-sans text-[12px] text-white/80 uppercase tracking-[0.12em]">2-Week Bootcamp Kicks Off Monday, April 27</span>
+      <div className="flex justify-center pt-6 pb-4 px-3">
+        <div className="inline-flex items-center gap-2 border border-white/20 rounded-full px-4 md:px-5 py-2">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+          <span className="font-sans text-[10px] md:text-[12px] text-white/80 uppercase tracking-[0.08em] md:tracking-[0.12em] whitespace-nowrap">2-Week Bootcamp Kicks Off Monday, April 27</span>
         </div>
       </div>
 
