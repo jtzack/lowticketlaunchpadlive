@@ -1,7 +1,7 @@
 import './index.css'
 import { useState, useEffect, useRef } from 'react'
 
-const DEFAULT_CTA_URL = 'https://vine-perch-730.notion.site/Coming-soon-33a01b956bb6808fb032e4038713152a?pvs=74'
+const DEFAULT_CTA_URL = 'https://ship.samcart.com/products/low-ticket-launchpad-live'
 
 // April 26, 2026 11:59 PM ET (UTC-4 for EDT)
 const CART_CLOSE_DATE = new Date('2026-04-27T03:59:00Z')
