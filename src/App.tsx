@@ -208,7 +208,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
                 className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden"
                 style={{ backgroundColor: '#4758cd' }}
               >
-                <img src="/images/cole-cutout.png" alt="Nicolas Cole" className="w-full h-full object-cover object-top" />
+                <img src="/images/cole-circle.png" alt="Nicolas Cole" className="w-full h-full object-cover object-top" />
               </div>
               <span className="font-sans text-[13px] text-white/70 mt-2">Nicolas Cole</span>
             </div>
@@ -219,7 +219,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
                 className="w-[160px] h-[160px] md:w-[190px] md:h-[190px] rounded-full overflow-hidden"
                 style={{ backgroundColor: '#fd4243' }}
               >
-                <img src="/images/daniel-cutout.png" alt="Daniel Bustamante" className="w-full h-full object-cover object-top" />
+                <img src="/images/daniel-circle.png" alt="Daniel Bustamante" className="w-full h-full object-cover object-top" />
               </div>
               <span className="font-sans text-[13px] text-white/70 mt-2">Daniel Bustamante</span>
             </div>
@@ -230,7 +230,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
                 className="w-[170px] h-[170px] md:w-[200px] md:h-[200px] rounded-full overflow-hidden"
                 style={{ backgroundColor: '#c6be78' }}
               >
-                <img src="/images/dickie-cutout.png" alt="Dickie Bush" className="w-full h-full object-cover object-top" />
+                <img src="/images/dickie-circle.png" alt="Dickie Bush" className="w-full h-full object-cover object-top" />
               </div>
               <span className="font-sans text-[13px] text-white/70 mt-2">Dickie Bush</span>
             </div>
