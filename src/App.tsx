@@ -483,10 +483,10 @@ function SessionRoadmap() {
         {/* Bold closing statement */}
         <div className="mt-16 text-center">
           <h3 className="font-display text-[clamp(24px,3.5vw,40px)] text-dark uppercase leading-[1] mb-6">
-            This Isn't Self-Paced Content<br />You Buy And Forget.
+            We Build <span className="text-blue">Together</span>. You Show Up.<br />You Leave With <span className="text-blue">A Product That Sells</span>.
           </h3>
           <p className="font-sans text-[15px] text-dark/60 mb-8">
-            We build <span className="text-blue font-bold">together</span>. You show up. You leave with <span className="text-blue font-bold">a product that sells</span>.
+            This isn't self-paced content you buy and forget.
           </p>
           <CtaBlock centered />
         </div>
