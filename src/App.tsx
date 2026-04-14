@@ -275,10 +275,10 @@ function HowItWorks() {
   const stats = [
     { num: '6', label: 'Live Sessions', desc: '3 per week over 2 weeks.\n60 min each. 3:00 PM ET.' },
     { num: '14', label: 'Days to Launch', desc: 'From zero to a live\ndigital product with\nsales coming in.' },
+    { num: '6', label: 'Mega-Prompts', desc: 'Ready-to-use prompts\nand Claude Skills.' },
+    { num: '18', label: 'Video Modules', desc: '2 Mini-Courses with\nrecorded trainings.\nWatch at your own pace.\nReturn anytime.' },
     { num: '\u221E', label: 'Lifetime Access', desc: 'All replays, slides,\ntemplates, prompts,\nand bonuses forever.' },
     { num: '3', label: 'World-Class\nInstructors', desc: 'Dickie Bush, Nicolas Cole,\n& Daniel Bustamante\u2014behind\nthe internet\'s biggest\nwriting businesses.' },
-    { num: '18', label: 'Video Modules', desc: '2 Mini-Courses with\nrecorded trainings.\nWatch at your own pace.\nReturn anytime.' },
-    { num: '6', label: 'Mega-Prompts', desc: 'Ready-to-use prompts\nand Claude Skills.' },
   ]
 
   return (
