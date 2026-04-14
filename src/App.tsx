@@ -277,6 +277,8 @@ function HowItWorks() {
     { num: '14', label: 'Days to Launch', desc: 'From zero to a live\ndigital product with\nsales coming in.' },
     { num: '\u221E', label: 'Lifetime Access', desc: 'All replays, slides,\ntemplates, prompts,\nand bonuses forever.' },
     { num: '3', label: 'World-Class\nInstructors', desc: 'Dickie Bush, Nicolas Cole,\n& Daniel Bustamante\u2014behind\nthe internet\'s biggest\nwriting businesses.' },
+    { num: '18', label: 'Video Modules', desc: '2 Mini-Courses with\nrecorded trainings.\nWatch at your own pace.\nReturn anytime.' },
+    { num: '6', label: 'Mega-Prompts', desc: 'Ready-to-use prompts\nand Claude Skills.' },
   ]
 
   return (
@@ -290,14 +292,26 @@ function HowItWorks() {
           A 14-day live cohort where you build your first digital product from scratch &mdash; or turn a stalled idea into something that actually sells. Every session, you leave with a live deliverable ready to generate revenue.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((s, i) => (
-            <div key={i} className="bg-dark border border-white/10 rounded-lg p-6 md:p-8">
-              <span className="font-display text-[clamp(56px,10vw,100px)] text-blue leading-none block">{s.num}</span>
-              <p className="font-sans text-[14px] font-bold text-white uppercase tracking-wider mt-2 whitespace-pre-line">{s.label}</p>
-              <p className="font-sans text-[13px] text-white/35 mt-3 whitespace-pre-line leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
+          {/* Left — Skool screenshot */}
+          <div className="w-full md:w-1/2 flex-shrink-0">
+            <img
+              src="/images/ltl-skool.png"
+              alt="Low-Ticket Launchpad Skool classroom"
+              className="w-full h-auto rounded-lg border border-white/10 shadow-lg shadow-black/40"
+            />
+          </div>
+
+          {/* Right — stats grid */}
+          <div className="w-full md:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-4">
+            {stats.map((s, i) => (
+              <div key={i} className="bg-dark border border-white/10 rounded-lg p-5 md:p-6">
+                <span className="font-display text-[clamp(40px,6vw,64px)] text-blue leading-none block">{s.num}</span>
+                <p className="font-sans text-[13px] font-bold text-white uppercase tracking-wider mt-2 whitespace-pre-line">{s.label}</p>
+                <p className="font-sans text-[12px] text-white/35 mt-2 whitespace-pre-line leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
