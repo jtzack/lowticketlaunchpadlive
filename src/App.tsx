@@ -264,7 +264,7 @@ function HowItWorks() {
       <div className="max-w-wide mx-auto">
         <div className="w-20 h-[2px] bg-blue mx-auto mb-8" />
         <h2 className="font-display text-[clamp(28px,4vw,44px)] text-white uppercase text-center leading-[0.95] mb-4">
-          What Is The Low-Ticket Launchpad?
+          What Is Low-Ticket Launchpad LIVE?
         </h2>
         <p className="font-sans text-[15px] text-white/50 leading-relaxed mb-12 max-w-[620px] mx-auto text-center">
           A 14-day live cohort where you build your first digital product from scratch &mdash; or turn a stalled idea into something that actually sells. Every session, you leave with a live deliverable ready to generate revenue.
