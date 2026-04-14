@@ -527,14 +527,56 @@ function SessionRoadmap() {
    SECTION 7: BONUSES — 3-Column Card Grid
    ═══════════════════════════════════════════════════════════ */
 function Bonuses() {
-  const bonuses = [
-    { num: 1, title: 'Product Idea Extraction Prompt', desc: 'The exact AI prompt to mine your existing content for profitable product ideas. Feed it your posts, newsletters, or threads.', value: '$99' },
-    { num: 2, title: 'Template Swipe File', desc: 'Proven $99 template examples across different niches \u2014 see what sells, how it\'s structured, and why people pay.', value: '$149', img: 3 },
-    { num: 3, title: 'Course Outline AI Prompt', desc: 'Takes one problem and expands it into a full course curriculum \u2014 modules, lessons, deliverables \u2014 in under an hour.', value: '$99', img: 2 },
-    { num: 4, title: 'Landing Page Copy Templates', desc: 'High-converting sales page templates for your $99 template and $350 course. Headlines, offer stacks, CTAs, guarantee blocks.', value: '$149' },
-    { num: 5, title: 'Evergreen Marketing Playbook', desc: 'The complete system for selling digital products on autopilot \u2014 social CTAs, email sequences, pinned posts.', value: '$99' },
-    { num: 6, title: 'Revenue Tracker Spreadsheet', desc: 'Track your full funnel: top-of-funnel reach, email opt-ins, landing page traffic, and conversion rates.', value: '$99' },
+  const coreBonuses = [
+    {
+      num: 1,
+      title: 'Viral Drop Playbook',
+      desc: 'Our step-by-step system to turn a single social post into hundreds of new email subscribers \u2014 then convert them into buyers of your new $99 template and $350 course.',
+      value: '$1,000',
+    },
+    {
+      num: 2,
+      title: 'Product Traffic Vault',
+      desc: 'The top 30 LinkedIn & X posts we\'ve seen driving product sales, templatized and fill-in-the-blank. Plus an AI prompt that spins any viral post into a niche-specific version of your own.',
+      value: '$800',
+    },
   ]
+
+  const expiringBonuses = [
+    {
+      num: 3,
+      title: 'Low-Ticket Launchpad AI Version',
+      desc: 'Our complete system for building and selling $350 digital products, rebuilt for the AI age. This Claude Cowork Skill builds your assets as you learn.',
+      value: '$1,000',
+      expires: 'Expires April 21',
+    },
+    {
+      num: 4,
+      title: 'Writer Career Paths eBook + Masterclass Replay',
+      desc: 'Cole\u2019s brand new book on the 9 ways to make $1,000,000 with your words, the writing skills you need to master each one, and which careers promise the highest earning potential.',
+      value: '$99',
+      expires: 'Expires April 24',
+    },
+  ]
+
+  const renderCard = (b: { num: number; title: string; desc: string; value: string; expires?: string }) => (
+    <div key={b.num} className="bg-dark border border-white/8 rounded-lg overflow-hidden">
+      <div className="h-40 bg-cream flex items-center justify-center p-4 rounded-t-lg">
+        <img src={`/images/ltl-bonus-${b.num}.png`} alt={b.title} className="max-h-full max-w-full object-contain" loading="lazy" />
+      </div>
+      <div className="p-6">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-sans text-[10px] font-bold text-yellow uppercase tracking-widest">Bonus #{b.num}</span>
+          {b.expires && (
+            <span className="font-sans text-[10px] font-bold text-red-400 uppercase tracking-widest">&bull; {b.expires}</span>
+          )}
+        </div>
+        <h3 className="font-sans text-[16px] font-bold text-cream mt-1 mb-2">{b.title}</h3>
+        <p className="font-sans text-[13px] text-white/40 leading-relaxed mb-4">{b.desc}</p>
+        <p className="font-sans text-[14px] text-blue font-bold">{b.value} value</p>
+      </div>
+    </div>
+  )
 
   return (
     <section className="bg-black py-16 md:py-24 px-5 md:px-6">
@@ -545,24 +587,24 @@ function Bonuses() {
         </h2>
         <div className="w-full h-px bg-white/10 mb-10 max-w-page mx-auto" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-page mx-auto">
-          {bonuses.map((b) => (
-            <div key={b.num} className="bg-dark border border-white/8 rounded-lg overflow-hidden">
-              <div className="h-40 bg-cream flex items-center justify-center p-4 rounded-t-lg">
-                <img src={`/images/bonus-${b.num}.png`} alt={b.title} className="max-h-full max-w-full object-contain" loading="lazy" />
-              </div>
-              <div className="p-6">
-                <span className="font-sans text-[10px] font-bold text-yellow uppercase tracking-widest">Bonus #{b.num}</span>
-                <h3 className="font-sans text-[16px] font-bold text-cream mt-1 mb-2">{b.title}</h3>
-                <p className="font-sans text-[13px] text-white/40 leading-relaxed mb-4">{b.desc}</p>
-                <p className="font-sans text-[14px] text-blue font-bold">{b.value} value</p>
-              </div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-page mx-auto">
+          {coreBonuses.map(renderCard)}
+        </div>
+
+        <div className="mt-12 mb-8 flex items-center gap-4 max-w-page mx-auto">
+          <div className="flex-1 h-px bg-yellow/30" />
+          <p className="font-display text-[clamp(18px,2.5vw,26px)] text-yellow uppercase tracking-wider text-center whitespace-nowrap">
+            Fast-Action Expiring Bonuses
+          </p>
+          <div className="flex-1 h-px bg-yellow/30" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-page mx-auto">
+          {expiringBonuses.map(renderCard)}
         </div>
 
         <div className="mt-12 text-center">
-          <p className="font-display text-[24px] text-white uppercase mb-6">Over $694 In Free Bonuses</p>
+          <p className="font-display text-[24px] text-white uppercase mb-6">Over $2,899 In Free Bonuses</p>
           <CtaBlock centered />
         </div>
       </div>
