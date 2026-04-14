@@ -1,7 +1,7 @@
 import './index.css'
 import { useState, useEffect, useRef } from 'react'
 
-const DEFAULT_CTA_URL = 'https://vine-perch-730.notion.site/Coming-soon-33a01b956bb6808fb032e4038713152a?pvs=74'
+const DEFAULT_CTA_URL = 'https://ship.samcart.com/products/low-ticket-launchpad-live'
 
 // April 26, 2026 11:59 PM ET (UTC-4 for EDT)
 const CART_CLOSE_DATE = new Date('2026-04-27T03:59:00Z')
@@ -30,7 +30,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 }
 
 /* ─── Countdown Timer ─── */
-function CountdownTimer({ targetDate, centered, variant, compact }: { targetDate: Date; centered?: boolean; variant?: 'yellow'; compact?: boolean }) {
+function CountdownTimer({ targetDate, centered, variant, compact, onLight }: { targetDate: Date; centered?: boolean; variant?: 'yellow'; compact?: boolean; onLight?: boolean }) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function CountdownTimer({ targetDate, centered, variant, compact }: { targetDate
           <span className={`font-sans text-[22px] font-bold leading-none rounded px-2.5 py-1.5 min-w-[44px] text-center tabular-nums ${variant === 'yellow' ? 'bg-yellow text-black' : 'bg-white text-black'}`}>
             {String(u.value).padStart(2, '0')}
           </span>
-          <span className="font-sans text-[10px] uppercase tracking-wider mt-1 text-white/40">{u.label}</span>
+          <span className={`font-sans text-[10px] font-bold uppercase tracking-wider mt-1 ${onLight ? 'text-black/60' : 'text-white/60'}`}>{u.label}</span>
         </div>
       ))}
     </div>
@@ -80,12 +80,12 @@ function CountdownTimer({ targetDate, centered, variant, compact }: { targetDate
 }
 
 /* ─── Inline CTA Block (reusable) ─── */
-function CtaBlock({ centered, label, variant = 'yellow' }: { centered?: boolean; label?: string; variant?: 'yellow' | 'black' }) {
+function CtaBlock({ centered, label, variant = 'yellow', onLight }: { centered?: boolean; label?: string; variant?: 'yellow' | 'black'; onLight?: boolean }) {
   return (
     <div className={centered ? 'text-center' : ''}>
       <a
         href={DEFAULT_CTA_URL}
-        className={`inline-block font-sans text-[15px] font-bold uppercase tracking-[0.08em] px-12 py-4 rounded-lg transition-all hover:scale-[1.02] ${
+        className={`inline-block font-sans text-[13px] md:text-[15px] font-bold uppercase tracking-[0.08em] px-6 md:px-12 py-4 rounded-lg transition-all hover:scale-[1.02] whitespace-nowrap ${
           variant === 'black'
             ? 'bg-black text-yellow hover:bg-dark'
             : 'bg-yellow text-black hover:bg-yellow/90'
@@ -93,8 +93,8 @@ function CtaBlock({ centered, label, variant = 'yellow' }: { centered?: boolean;
       >
         {label || 'Join Low-Ticket Launchpad LIVE'}
       </a>
-      <p className="font-sans text-[11px] text-white/40 uppercase tracking-wider mt-4 mb-1">{centered ? '' : ''}Cart closes in</p>
-      <CountdownTimer targetDate={CART_CLOSE_DATE} centered={centered} variant="yellow" />
+      <p className={`font-sans text-[11px] uppercase tracking-wider mt-4 mb-1 ${onLight ? 'text-black/50' : 'text-white/40'}`}>{centered ? '' : ''}Cart closes in</p>
+      <CountdownTimer targetDate={CART_CLOSE_DATE} centered={centered} variant="yellow" onLight={onLight} />
     </div>
   )
 }
@@ -179,7 +179,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
           <h1 className="font-display text-[clamp(40px,4.8vw,60px)] text-white uppercase leading-[0.95] tracking-tight mb-5">
             How To Create & Sell A<br />
             <span className="text-yellow">$350 Digital Product</span><br />
-            In 14 Days
+            In 14 Days With AI
           </h1>
 
           {/* Subhead */}
@@ -190,7 +190,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
           <a
             ref={ctaRef}
             href={DEFAULT_CTA_URL}
-            className="inline-block bg-yellow text-black font-sans text-[15px] font-bold uppercase tracking-[0.1em] px-12 py-4 rounded-lg mt-8 hover:bg-yellow/90 transition-all hover:scale-[1.02]"
+            className="inline-block bg-yellow text-black font-sans text-[13px] md:text-[15px] font-bold uppercase tracking-[0.1em] px-6 md:px-12 py-4 rounded-lg mt-8 hover:bg-yellow/90 transition-all hover:scale-[1.02] whitespace-nowrap"
           >
             Join Low-Ticket Launchpad LIVE
           </a>
@@ -199,21 +199,41 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
           <CountdownTimer targetDate={CART_CLOSE_DATE} variant="yellow" />
         </div>
 
-        {/* Right column — instructor photo cards */}
+        {/* Right column — instructor circles */}
         <div className="flex-1 flex justify-center md:justify-end">
-          <div className="relative w-[320px] h-[380px] md:w-[380px] md:h-[440px]">
-            <div className="absolute left-0 top-0 w-[190px] md:w-[220px] -rotate-3 z-10">
-              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
-                <img src="/images/cole.png" alt="Nicolas Cole" className="w-full h-[240px] md:h-[290px] object-cover object-top" />
+          <div className="relative w-[340px] h-[440px] md:w-[420px] md:h-[500px]">
+            {/* Nicolas Cole — blue, top-left */}
+            <div className="absolute left-0 top-0 z-10 flex flex-col items-center">
+              <div
+                className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden"
+                style={{ backgroundColor: '#4758cd' }}
+              >
+                <img src="/images/cole-circle.png" alt="Nicolas Cole" className="w-full h-full object-cover object-top" />
               </div>
+              <span className="font-sans text-[13px] text-white/70 mt-2">Nicolas Cole</span>
             </div>
-            <div className="absolute right-0 top-10 w-[190px] md:w-[220px] rotate-2 z-20">
-              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
-                <img src="/images/dickie.png" alt="Dickie Bush" className="w-full h-[240px] md:h-[290px] object-cover object-top" />
+
+            {/* Daniel Bustamante — red, mid-right */}
+            <div className="absolute right-0 top-[110px] md:top-[130px] z-20 flex flex-col items-center">
+              <div
+                className="w-[160px] h-[160px] md:w-[190px] md:h-[190px] rounded-full overflow-hidden"
+                style={{ backgroundColor: '#fd4243' }}
+              >
+                <img src="/images/daniel-circle.png" alt="Daniel Bustamante" className="w-full h-full object-cover object-top" />
               </div>
-              <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Dickie Bush</span>
+              <span className="font-sans text-[13px] text-white/70 mt-2">Daniel Bustamante</span>
             </div>
-            <span className="absolute left-0 top-[248px] md:top-[298px] w-[190px] md:w-[220px] -rotate-3 z-30 block font-sans text-[13px] text-white/60 text-center pointer-events-none">Nicolas Cole</span>
+
+            {/* Dickie Bush — yellow, bottom-left */}
+            <div className="absolute left-[30px] md:left-[50px] bottom-0 z-30 flex flex-col items-center">
+              <div
+                className="w-[170px] h-[170px] md:w-[200px] md:h-[200px] rounded-full overflow-hidden"
+                style={{ backgroundColor: '#c6be78' }}
+              >
+                <img src="/images/dickie-circle.png" alt="Dickie Bush" className="w-full h-full object-cover object-top" />
+              </div>
+              <span className="font-sans text-[13px] text-white/70 mt-2">Dickie Bush</span>
+            </div>
           </div>
         </div>
       </div>
@@ -255,29 +275,43 @@ function HowItWorks() {
   const stats = [
     { num: '6', label: 'Live Sessions', desc: '3 per week over 2 weeks.\n60 min each. 3:00 PM ET.' },
     { num: '14', label: 'Days to Launch', desc: 'From zero to a live\ndigital product with\nsales coming in.' },
+    { num: '6', label: 'Mega-Prompts', desc: 'Ready-to-use prompts\nand Claude Skills.' },
+    { num: '18', label: 'Video Modules', desc: '2 Mini-Courses with\nrecorded trainings.\nWatch at your own pace.\nReturn anytime.' },
     { num: '\u221E', label: 'Lifetime Access', desc: 'All replays, slides,\ntemplates, prompts,\nand bonuses forever.' },
-    { num: '2', label: 'World-Class\nInstructors', desc: 'Dickie Bush & Nicolas\nCole\u2014behind the\ninternet\'s biggest\nwriting businesses.' },
+    { num: '3', label: 'World-Class\nInstructors', desc: 'Dickie Bush, Nicolas Cole,\n& Daniel Bustamante\u2014behind\nthe internet\'s biggest\nwriting businesses.' },
   ]
 
   return (
     <section className="bg-black py-16 md:py-24 px-5 md:px-6">
       <div className="max-w-wide mx-auto">
         <div className="w-20 h-[2px] bg-blue mx-auto mb-8" />
-        <h2 className="font-display text-[clamp(28px,4vw,44px)] text-white uppercase text-center leading-[0.95] mb-4">
-          What Is The Low-Ticket Launchpad?
+        <h2 className="font-display text-[clamp(20px,5.5vw,44px)] text-white uppercase text-center leading-[0.95] mb-4 whitespace-nowrap">
+          What Is Low-Ticket Launchpad LIVE?
         </h2>
         <p className="font-sans text-[15px] text-white/50 leading-relaxed mb-12 max-w-[620px] mx-auto text-center">
           A 14-day live cohort where you build your first digital product from scratch &mdash; or turn a stalled idea into something that actually sells. Every session, you leave with a live deliverable ready to generate revenue.
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((s, i) => (
-            <div key={i} className="bg-dark border border-white/10 rounded-lg p-6 md:p-8">
-              <span className="font-display text-[clamp(56px,10vw,100px)] text-blue leading-none block">{s.num}</span>
-              <p className="font-sans text-[14px] font-bold text-white uppercase tracking-wider mt-2 whitespace-pre-line">{s.label}</p>
-              <p className="font-sans text-[13px] text-white/35 mt-3 whitespace-pre-line leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+        <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-start">
+          {/* Left — Skool screenshot */}
+          <div className="w-full md:w-1/2 flex-shrink-0">
+            <img
+              src="/images/ltl-skool.png"
+              alt="Low-Ticket Launchpad Skool classroom"
+              className="w-full h-auto rounded-lg border border-white/10 shadow-lg shadow-black/40"
+            />
+          </div>
+
+          {/* Right — stats grid */}
+          <div className="w-full md:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-4">
+            {stats.map((s, i) => (
+              <div key={i} className="bg-dark border border-white/10 rounded-lg p-5 md:p-6">
+                <span className="font-display text-[clamp(40px,6vw,64px)] text-blue leading-none block">{s.num}</span>
+                <p className="font-sans text-[13px] font-bold text-white uppercase tracking-wider mt-2 whitespace-pre-line">{s.label}</p>
+                <p className="font-sans text-[12px] text-white/35 mt-2 whitespace-pre-line leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -336,6 +370,19 @@ function Instructors() {
               <p className="font-sans text-[11px] text-blue-dark font-bold uppercase tracking-wider mb-2">Co-Founder, Ship 30 for 30</p>
               <p className="font-sans text-[14px] text-dark/60 leading-relaxed">
                 Former Wall Street trader at BlackRock turned Digital Entrepreneur. Creator of Ship 30 for 30 &mdash; the fastest-growing cohort-based writing program on the internet. 10,000+ graduates and a digital product empire that followed.
+              </p>
+            </div>
+          </div>
+          {/* Daniel Bustamante */}
+          <div className="flex gap-4">
+            <div className="w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg">
+              <img src="/images/daniel-headshot.png" alt="Daniel Bustamante" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h4 className="font-display text-[18px] text-dark uppercase">Daniel Bustamante</h4>
+              <p className="font-sans text-[11px] text-blue-dark font-bold uppercase tracking-wider mb-2">Co-Founder, Velocity</p>
+              <p className="font-sans text-[14px] text-dark/60 leading-relaxed">
+                Former CMO of Ship 30 for 30 and Premium Ghostwriting Academy. Helped scale Dickie and Cole's businesses to 10,000+ students, nearly 2,000 coaching clients, and $20M+ in revenue. Now Co-Founder of Velocity, the agency turning creators' audiences into recurring email revenue.
               </p>
             </div>
           </div>
@@ -464,12 +511,12 @@ function SessionRoadmap() {
         {/* Bold closing statement */}
         <div className="mt-16 text-center">
           <h3 className="font-display text-[clamp(24px,3.5vw,40px)] text-dark uppercase leading-[1] mb-6">
-            This Isn't Self-Paced Content<br />You Buy And Forget.
+            We Build <span className="text-blue">Together</span>. You Show Up.<br />You Leave With <span className="text-blue">A Product That Sells</span>.
           </h3>
           <p className="font-sans text-[15px] text-dark/60 mb-8">
-            We build <span className="text-blue font-bold">together</span>. You show up. You leave with <span className="text-blue font-bold">a product that sells</span>.
+            This isn't self-paced content you buy and forget.
           </p>
-          <CtaBlock centered />
+          <CtaBlock centered onLight />
         </div>
       </div>
     </section>
@@ -480,14 +527,56 @@ function SessionRoadmap() {
    SECTION 7: BONUSES — 3-Column Card Grid
    ═══════════════════════════════════════════════════════════ */
 function Bonuses() {
-  const bonuses = [
-    { num: 1, title: 'Product Idea Extraction Prompt', desc: 'The exact AI prompt to mine your existing content for profitable product ideas. Feed it your posts, newsletters, or threads.', value: '$99' },
-    { num: 2, title: 'Template Swipe File', desc: 'Proven $99 template examples across different niches \u2014 see what sells, how it\'s structured, and why people pay.', value: '$149', img: 3 },
-    { num: 3, title: 'Course Outline AI Prompt', desc: 'Takes one problem and expands it into a full course curriculum \u2014 modules, lessons, deliverables \u2014 in under an hour.', value: '$99', img: 2 },
-    { num: 4, title: 'Landing Page Copy Templates', desc: 'High-converting sales page templates for your $99 template and $350 course. Headlines, offer stacks, CTAs, guarantee blocks.', value: '$149' },
-    { num: 5, title: 'Evergreen Marketing Playbook', desc: 'The complete system for selling digital products on autopilot \u2014 social CTAs, email sequences, pinned posts.', value: '$99' },
-    { num: 6, title: 'Revenue Tracker Spreadsheet', desc: 'Track your full funnel: top-of-funnel reach, email opt-ins, landing page traffic, and conversion rates.', value: '$99' },
+  const coreBonuses = [
+    {
+      num: 1,
+      title: 'Viral Drop Playbook',
+      desc: 'Our step-by-step system to turn a single social post into hundreds of new email subscribers \u2014 then convert them into buyers of your new $99 template and $350 course.',
+      value: '$1,000',
+    },
+    {
+      num: 2,
+      title: 'Product Traffic Vault',
+      desc: 'The top 30 LinkedIn & X posts we\'ve seen driving product sales, templatized and fill-in-the-blank. Plus an AI prompt that spins any viral post into a niche-specific version of your own.',
+      value: '$800',
+    },
   ]
+
+  const expiringBonuses = [
+    {
+      num: 3,
+      title: 'Low-Ticket Launchpad AI Version',
+      desc: 'Our complete system for building and selling $350 digital products, rebuilt for the AI age. This Claude Cowork Skill builds your assets as you learn.',
+      value: '$1,000',
+      expires: 'Expires April 21',
+    },
+    {
+      num: 4,
+      title: 'Writer Career Paths eBook + Masterclass Replay',
+      desc: 'Cole\u2019s brand new book on the 9 ways to make $1,000,000 with your words, the writing skills you need to master each one, and which careers promise the highest earning potential.',
+      value: '$99',
+      expires: 'Expires April 24',
+    },
+  ]
+
+  const renderCard = (b: { num: number; title: string; desc: string; value: string; expires?: string }) => (
+    <div key={b.num} className="bg-dark border border-white/8 rounded-lg overflow-hidden">
+      <div className="h-40 bg-cream flex items-center justify-center p-4 rounded-t-lg">
+        <img src={`/images/ltl-bonus-${b.num}.png`} alt={b.title} className="max-h-full max-w-full object-contain" loading="lazy" />
+      </div>
+      <div className="p-6">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="font-sans text-[10px] font-bold text-yellow uppercase tracking-widest">Bonus #{b.num}</span>
+          {b.expires && (
+            <span className="font-sans text-[10px] font-bold text-red-400 uppercase tracking-widest">&bull; {b.expires}</span>
+          )}
+        </div>
+        <h3 className="font-sans text-[16px] font-bold text-cream mt-1 mb-2">{b.title}</h3>
+        <p className="font-sans text-[13px] text-white/40 leading-relaxed mb-4">{b.desc}</p>
+        <p className="font-sans text-[14px] text-blue font-bold">{b.value} value</p>
+      </div>
+    </div>
+  )
 
   return (
     <section className="bg-black py-16 md:py-24 px-5 md:px-6">
@@ -498,24 +587,24 @@ function Bonuses() {
         </h2>
         <div className="w-full h-px bg-white/10 mb-10 max-w-page mx-auto" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-page mx-auto">
-          {bonuses.map((b) => (
-            <div key={b.num} className="bg-dark border border-white/8 rounded-lg overflow-hidden">
-              <div className="h-40 bg-cream flex items-center justify-center p-4 rounded-t-lg">
-                <img src={`/images/bonus-${b.num}.png`} alt={b.title} className="max-h-full max-w-full object-contain" loading="lazy" />
-              </div>
-              <div className="p-6">
-                <span className="font-sans text-[10px] font-bold text-yellow uppercase tracking-widest">Bonus #{b.num}</span>
-                <h3 className="font-sans text-[16px] font-bold text-cream mt-1 mb-2">{b.title}</h3>
-                <p className="font-sans text-[13px] text-white/40 leading-relaxed mb-4">{b.desc}</p>
-                <p className="font-sans text-[14px] text-blue font-bold">{b.value} value</p>
-              </div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-page mx-auto">
+          {coreBonuses.map(renderCard)}
+        </div>
+
+        <div className="mt-12 mb-8 flex items-center gap-4 max-w-page mx-auto">
+          <div className="flex-1 h-px bg-yellow/30" />
+          <p className="font-display text-[clamp(18px,2.5vw,26px)] text-yellow uppercase tracking-wider text-center whitespace-nowrap">
+            Fast-Action Expiring Bonuses
+          </p>
+          <div className="flex-1 h-px bg-yellow/30" />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-page mx-auto">
+          {expiringBonuses.map(renderCard)}
         </div>
 
         <div className="mt-12 text-center">
-          <p className="font-display text-[24px] text-white uppercase mb-6">Over $694 In Free Bonuses</p>
+          <p className="font-display text-[24px] text-white uppercase mb-6">Over $2,899 In Free Bonuses</p>
           <CtaBlock centered />
         </div>
       </div>
@@ -538,7 +627,7 @@ function AIWritingSkool() {
     <section className="bg-dark py-16 md:py-24 px-5 md:px-6">
       <div className="max-w-page mx-auto">
         <p className="font-sans text-[11px] font-bold text-blue uppercase tracking-[0.2em] mb-3">Included Free</p>
-        <h2 className="font-display text-[clamp(28px,4vw,44px)] text-cream uppercase leading-[0.95] mb-3">
+        <h2 className="font-display text-[clamp(20px,5.5vw,44px)] text-cream uppercase leading-[0.95] mb-3 whitespace-nowrap">
           Free 30-Day Trial To AI Writing Skool
         </h2>
         <div className="w-full h-px bg-white/10 mb-10" />
@@ -584,15 +673,15 @@ function AIWritingSkool() {
    ═══════════════════════════════════════════════════════════ */
 function Pricing() {
   const valueItems = [
-    { name: '6 Live Sessions with Dickie Bush & Nicolas Cole', price: '$4,200' },
-    { name: 'Session Replays + Slide Decks', price: '$200' },
-    { name: 'Digital Product Templates Pack', price: '$99' },
-    { name: 'BONUS: Product Idea Extraction Prompt', price: '$99' },
-    { name: 'BONUS: Template Swipe File', price: '$149' },
-    { name: 'BONUS: Course Outline AI Prompt', price: '$99' },
-    { name: 'BONUS: Landing Page Copy Templates', price: '$149' },
-    { name: 'BONUS: Evergreen Marketing Playbook', price: '$99' },
-    { name: 'BONUS: Revenue Tracker Spreadsheet', price: '$99' },
+    { name: '6 x 60 Minute Live Sessions', price: '$3,600' },
+    { name: 'Session Replays, Slide Decks & Notes', price: '$1,600' },
+    { name: '6 Done-For-You Prompts & Templates', price: '$600' },
+    { name: 'Mini-Course: Product Creation Playbook', price: '$1,500' },
+    { name: 'Mini-Course: Product Marketing & Monetization Mastery', price: '$3,000' },
+    { name: 'BONUS: Viral Drop Playbook', price: '$1,000' },
+    { name: 'BONUS: Product Traffic Vault', price: '$800' },
+    { name: 'BONUS: Low-Ticket Launchpad AI Version', price: '$1,000' },
+    { name: 'BONUS: Writer Career Paths eBook + Masterclass Replay', price: '$99' },
     { name: '30-Day AI Writing Skool Trial', price: '$99' },
   ]
 
@@ -616,7 +705,7 @@ function Pricing() {
             ))}
             <div className="flex justify-between items-center pt-4 mt-2 border-t border-white/10">
               <span className="font-sans text-[13px] font-bold text-white">Total Value</span>
-              <span className="font-sans text-[20px] font-bold text-white line-through">$5,293</span>
+              <span className="font-sans text-[20px] font-bold text-white line-through">$13,298</span>
             </div>
           </div>
 
@@ -626,7 +715,7 @@ function Pricing() {
             <p className="font-display text-[clamp(56px,10vw,80px)] text-black leading-none mt-2">$800</p>
             <a
               href={DEFAULT_CTA_URL}
-              className="inline-block bg-black text-yellow font-sans text-[15px] font-bold uppercase tracking-[0.08em] px-16 py-4 rounded-lg mt-6 hover:bg-dark transition-all hover:scale-[1.02]"
+              className="inline-block bg-black text-yellow font-sans text-[13px] md:text-[15px] font-bold uppercase tracking-[0.08em] px-6 md:px-16 py-4 rounded-lg mt-6 hover:bg-dark transition-all hover:scale-[1.02] whitespace-nowrap"
             >
               Join Low-Ticket Launchpad LIVE
             </a>
@@ -669,7 +758,7 @@ function GuaranteeFinalCta() {
             </h2>
             <a
               href={DEFAULT_CTA_URL}
-              className="inline-block bg-yellow text-black font-sans text-[15px] font-bold uppercase tracking-[0.08em] px-12 py-4 rounded-lg hover:bg-yellow/90 transition-all hover:scale-[1.02] mb-4"
+              className="inline-block bg-yellow text-black font-sans text-[12px] md:text-[15px] font-bold uppercase tracking-[0.08em] px-5 md:px-12 py-4 rounded-lg hover:bg-yellow/90 transition-all hover:scale-[1.02] mb-4 whitespace-nowrap"
             >
               Join Low-Ticket Launchpad LIVE &mdash; $800 &rarr;
             </a>
@@ -693,9 +782,9 @@ function FAQ() {
     { q: "Do I need an existing audience?", a: "No. Inside the bootcamp we walk you through the exact social content strategy we use to organically generate sales. If you have an audience, you'll monetize faster. If you don't, you'll learn the systems to start generating traffic and sales from scratch." },
     { q: "What kind of digital product will I build?", a: "In the first week, you'll build a $99 template \u2014 a simple, actionable digital asset that solves one specific problem. In the second week, you'll expand that into a $350 digital course with a full offer stack and bonus bundle." },
     { q: "I already have a digital product. Is this still for me?", a: "Absolutely. If you've tried creating a digital product before but didn't see results, the bootcamp will help you identify what went wrong and how to fix it. We've made all the same mistakes most creators make \u2014 the difference is we've figured out how to fix them." },
-    { q: "How is this different from the self-paced Low-Ticket Launchpad?", a: "The self-paced LTL is a bundle of mini-courses you work through on your own. Low-Ticket Launchpad Live is a 2-week live cohort where you build everything in real time with Dickie and Nicolas. Different format, much higher accountability \u2014 and you leave with a finished product." },
+    { q: "How is this different from the self-paced Low-Ticket Launchpad?", a: "The self-paced LTL is a bundle of mini-courses you work through on your own. Low-Ticket Launchpad Live is a 2-week live cohort where you build everything in real time with Dickie, Nicolas, and Daniel. Different format, much higher accountability \u2014 and you leave with a finished product." },
     { q: "Can't I just learn this for free?", a: "You could piece together snippets of information from across the internet and try to figure it all out yourself. But that would take hundreds of hours, and you'd still miss critical pieces. What we're offering is a complete, proven system that has generated over $15,000,000 in revenue." },
-    { q: "Is there a VIP option?", a: "Yes. A small-group VIP upgrade is available at $2,500 \u2014 direct access and personalized strategy from Dickie and Nicolas. Limited spots. Email us to inquire." },
+    { q: "Is there a VIP option?", a: "Yes. A small-group VIP upgrade is available at $2,500 \u2014 direct access and personalized strategy from Dickie, Nicolas, and Daniel. Limited spots. Email us to inquire." },
     { q: "How long do I have access?", a: "Lifetime. All replays, slide decks, templates, prompts, and bonuses are yours to keep forever." },
   ]
 
