@@ -673,15 +673,15 @@ function AIWritingSkool() {
    ═══════════════════════════════════════════════════════════ */
 function Pricing() {
   const valueItems = [
-    { name: '6 Live Sessions with Dickie Bush, Nicolas Cole & Daniel Bustamante', price: '$4,200' },
-    { name: 'Session Replays + Slide Decks', price: '$200' },
-    { name: 'Digital Product Templates Pack', price: '$99' },
-    { name: 'BONUS: Product Idea Extraction Prompt', price: '$99' },
-    { name: 'BONUS: Template Swipe File', price: '$149' },
-    { name: 'BONUS: Course Outline AI Prompt', price: '$99' },
-    { name: 'BONUS: Landing Page Copy Templates', price: '$149' },
-    { name: 'BONUS: Evergreen Marketing Playbook', price: '$99' },
-    { name: 'BONUS: Revenue Tracker Spreadsheet', price: '$99' },
+    { name: '6 x 60 Minute Live Sessions', price: '$3,600' },
+    { name: 'Session Replays, Slide Decks & Notes', price: '$1,600' },
+    { name: '6 Done-For-You Prompts & Templates', price: '$600' },
+    { name: 'Mini-Course: Product Creation Playbook', price: '$1,500' },
+    { name: 'Mini-Course: Product Marketing & Monetization Mastery', price: '$3,000' },
+    { name: 'BONUS: Viral Drop Playbook', price: '$1,000' },
+    { name: 'BONUS: Product Traffic Vault', price: '$800' },
+    { name: 'BONUS: Low-Ticket Launchpad AI Version', price: '$1,000' },
+    { name: 'BONUS: Writer Career Paths eBook + Masterclass Replay', price: '$99' },
     { name: '30-Day AI Writing Skool Trial', price: '$99' },
   ]
 
@@ -705,7 +705,7 @@ function Pricing() {
             ))}
             <div className="flex justify-between items-center pt-4 mt-2 border-t border-white/10">
               <span className="font-sans text-[13px] font-bold text-white">Total Value</span>
-              <span className="font-sans text-[20px] font-bold text-white line-through">$5,293</span>
+              <span className="font-sans text-[20px] font-bold text-white line-through">$13,298</span>
             </div>
           </div>
 
