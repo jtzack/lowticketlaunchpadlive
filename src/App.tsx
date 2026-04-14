@@ -199,26 +199,40 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
           <CountdownTimer targetDate={CART_CLOSE_DATE} variant="yellow" />
         </div>
 
-        {/* Right column — instructor photo cards */}
+        {/* Right column — instructor circles */}
         <div className="flex-1 flex justify-center md:justify-end">
-          <div className="relative w-[340px] h-[460px] md:w-[400px] md:h-[520px]">
-            <div className="absolute left-0 top-0 w-[180px] md:w-[210px] -rotate-6 z-10">
-              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
-                <img src="/images/cole.png" alt="Nicolas Cole" className="w-full h-[220px] md:h-[260px] object-cover object-top" />
+          <div className="relative w-[340px] h-[440px] md:w-[420px] md:h-[500px]">
+            {/* Nicolas Cole — blue, top-left */}
+            <div className="absolute left-0 top-0 z-10 flex flex-col items-center">
+              <div
+                className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden"
+                style={{ backgroundColor: '#4758cd' }}
+              >
+                <img src="/images/cole-cutout.png" alt="Nicolas Cole" className="w-full h-full object-cover object-top" />
               </div>
-              <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Nicolas Cole</span>
+              <span className="font-sans text-[13px] text-white/70 mt-2">Nicolas Cole</span>
             </div>
-            <div className="absolute right-0 top-6 w-[180px] md:w-[210px] rotate-3 z-20">
-              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
-                <img src="/images/dickie.png" alt="Dickie Bush" className="w-full h-[220px] md:h-[260px] object-cover object-top" />
+
+            {/* Daniel Bustamante — red, mid-right */}
+            <div className="absolute right-0 top-[110px] md:top-[130px] z-20 flex flex-col items-center">
+              <div
+                className="w-[160px] h-[160px] md:w-[190px] md:h-[190px] rounded-full overflow-hidden"
+                style={{ backgroundColor: '#fd4243' }}
+              >
+                <img src="/images/daniel-cutout.png" alt="Daniel Bustamante" className="w-full h-full object-cover object-top" />
               </div>
-              <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Dickie Bush</span>
+              <span className="font-sans text-[13px] text-white/70 mt-2">Daniel Bustamante</span>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[180px] md:w-[210px] -rotate-2 z-30">
-              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
-                <img src="/images/daniel.png" alt="Daniel Bustamante" className="w-full h-[220px] md:h-[260px] object-cover object-top" />
+
+            {/* Dickie Bush — yellow, bottom-left */}
+            <div className="absolute left-[30px] md:left-[50px] bottom-0 z-30 flex flex-col items-center">
+              <div
+                className="w-[170px] h-[170px] md:w-[200px] md:h-[200px] rounded-full overflow-hidden"
+                style={{ backgroundColor: '#c6be78' }}
+              >
+                <img src="/images/dickie-cutout.png" alt="Dickie Bush" className="w-full h-full object-cover object-top" />
               </div>
-              <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Daniel Bustamante</span>
+              <span className="font-sans text-[13px] text-white/70 mt-2">Dickie Bush</span>
             </div>
           </div>
         </div>
