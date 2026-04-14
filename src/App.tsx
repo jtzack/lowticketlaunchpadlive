@@ -85,7 +85,7 @@ function CtaBlock({ centered, label, variant = 'yellow', onLight }: { centered?:
     <div className={centered ? 'text-center' : ''}>
       <a
         href={DEFAULT_CTA_URL}
-        className={`inline-block font-sans text-[15px] font-bold uppercase tracking-[0.08em] px-12 py-4 rounded-lg transition-all hover:scale-[1.02] ${
+        className={`inline-block font-sans text-[13px] md:text-[15px] font-bold uppercase tracking-[0.08em] px-6 md:px-12 py-4 rounded-lg transition-all hover:scale-[1.02] whitespace-nowrap ${
           variant === 'black'
             ? 'bg-black text-yellow hover:bg-dark'
             : 'bg-yellow text-black hover:bg-yellow/90'
@@ -190,7 +190,7 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
           <a
             ref={ctaRef}
             href={DEFAULT_CTA_URL}
-            className="inline-block bg-yellow text-black font-sans text-[15px] font-bold uppercase tracking-[0.1em] px-12 py-4 rounded-lg mt-8 hover:bg-yellow/90 transition-all hover:scale-[1.02]"
+            className="inline-block bg-yellow text-black font-sans text-[13px] md:text-[15px] font-bold uppercase tracking-[0.1em] px-6 md:px-12 py-4 rounded-lg mt-8 hover:bg-yellow/90 transition-all hover:scale-[1.02] whitespace-nowrap"
           >
             Join Low-Ticket Launchpad LIVE
           </a>
@@ -659,7 +659,7 @@ function Pricing() {
             <p className="font-display text-[clamp(56px,10vw,80px)] text-black leading-none mt-2">$800</p>
             <a
               href={DEFAULT_CTA_URL}
-              className="inline-block bg-black text-yellow font-sans text-[15px] font-bold uppercase tracking-[0.08em] px-16 py-4 rounded-lg mt-6 hover:bg-dark transition-all hover:scale-[1.02]"
+              className="inline-block bg-black text-yellow font-sans text-[13px] md:text-[15px] font-bold uppercase tracking-[0.08em] px-6 md:px-16 py-4 rounded-lg mt-6 hover:bg-dark transition-all hover:scale-[1.02] whitespace-nowrap"
             >
               Join Low-Ticket Launchpad LIVE
             </a>
@@ -702,7 +702,7 @@ function GuaranteeFinalCta() {
             </h2>
             <a
               href={DEFAULT_CTA_URL}
-              className="inline-block bg-yellow text-black font-sans text-[15px] font-bold uppercase tracking-[0.08em] px-12 py-4 rounded-lg hover:bg-yellow/90 transition-all hover:scale-[1.02] mb-4"
+              className="inline-block bg-yellow text-black font-sans text-[12px] md:text-[15px] font-bold uppercase tracking-[0.08em] px-5 md:px-12 py-4 rounded-lg hover:bg-yellow/90 transition-all hover:scale-[1.02] mb-4 whitespace-nowrap"
             >
               Join Low-Ticket Launchpad LIVE &mdash; $800 &rarr;
             </a>
