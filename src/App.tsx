@@ -256,7 +256,7 @@ function HowItWorks() {
     { num: '6', label: 'Live Sessions', desc: '3 per week over 2 weeks.\n60 min each. 3:00 PM ET.' },
     { num: '14', label: 'Days to Launch', desc: 'From zero to a live\ndigital product with\nsales coming in.' },
     { num: '\u221E', label: 'Lifetime Access', desc: 'All replays, slides,\ntemplates, prompts,\nand bonuses forever.' },
-    { num: '2', label: 'World-Class\nInstructors', desc: 'Dickie Bush & Nicolas\nCole\u2014behind the\ninternet\'s biggest\nwriting businesses.' },
+    { num: '3', label: 'World-Class\nInstructors', desc: 'Dickie Bush, Nicolas Cole,\n& Daniel Bustamante\u2014behind\nthe internet\'s biggest\nwriting businesses.' },
   ]
 
   return (
