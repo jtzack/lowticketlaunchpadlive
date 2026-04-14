@@ -30,7 +30,7 @@ function FadeIn({ children, className = '', delay = 0 }: { children: React.React
 }
 
 /* ─── Countdown Timer ─── */
-function CountdownTimer({ targetDate, centered, variant, compact }: { targetDate: Date; centered?: boolean; variant?: 'yellow'; compact?: boolean }) {
+function CountdownTimer({ targetDate, centered, variant, compact, onLight }: { targetDate: Date; centered?: boolean; variant?: 'yellow'; compact?: boolean; onLight?: boolean }) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function CountdownTimer({ targetDate, centered, variant, compact }: { targetDate
           <span className={`font-sans text-[22px] font-bold leading-none rounded px-2.5 py-1.5 min-w-[44px] text-center tabular-nums ${variant === 'yellow' ? 'bg-yellow text-black' : 'bg-white text-black'}`}>
             {String(u.value).padStart(2, '0')}
           </span>
-          <span className="font-sans text-[10px] uppercase tracking-wider mt-1 text-white/40">{u.label}</span>
+          <span className={`font-sans text-[10px] font-bold uppercase tracking-wider mt-1 ${onLight ? 'text-black/60' : 'text-white/60'}`}>{u.label}</span>
         </div>
       ))}
     </div>
@@ -80,7 +80,7 @@ function CountdownTimer({ targetDate, centered, variant, compact }: { targetDate
 }
 
 /* ─── Inline CTA Block (reusable) ─── */
-function CtaBlock({ centered, label, variant = 'yellow' }: { centered?: boolean; label?: string; variant?: 'yellow' | 'black' }) {
+function CtaBlock({ centered, label, variant = 'yellow', onLight }: { centered?: boolean; label?: string; variant?: 'yellow' | 'black'; onLight?: boolean }) {
   return (
     <div className={centered ? 'text-center' : ''}>
       <a
@@ -93,8 +93,8 @@ function CtaBlock({ centered, label, variant = 'yellow' }: { centered?: boolean;
       >
         {label || 'Join Low-Ticket Launchpad LIVE'}
       </a>
-      <p className="font-sans text-[11px] text-white/40 uppercase tracking-wider mt-4 mb-1">{centered ? '' : ''}Cart closes in</p>
-      <CountdownTimer targetDate={CART_CLOSE_DATE} centered={centered} variant="yellow" />
+      <p className={`font-sans text-[11px] uppercase tracking-wider mt-4 mb-1 ${onLight ? 'text-black/50' : 'text-white/40'}`}>{centered ? '' : ''}Cart closes in</p>
+      <CountdownTimer targetDate={CART_CLOSE_DATE} centered={centered} variant="yellow" onLight={onLight} />
     </div>
   )
 }
@@ -488,7 +488,7 @@ function SessionRoadmap() {
           <p className="font-sans text-[15px] text-dark/60 mb-8">
             This isn't self-paced content you buy and forget.
           </p>
-          <CtaBlock centered />
+          <CtaBlock centered onLight />
         </div>
       </div>
     </section>
