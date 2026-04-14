@@ -201,19 +201,25 @@ function Hero({ ctaRef }: { ctaRef: React.RefObject<HTMLAnchorElement | null> })
 
         {/* Right column — instructor photo cards */}
         <div className="flex-1 flex justify-center md:justify-end">
-          <div className="relative w-[320px] h-[380px] md:w-[380px] md:h-[440px]">
-            <div className="absolute left-0 top-0 w-[190px] md:w-[220px] -rotate-3 z-10">
+          <div className="relative w-[340px] h-[460px] md:w-[400px] md:h-[520px]">
+            <div className="absolute left-0 top-0 w-[180px] md:w-[210px] -rotate-6 z-10">
               <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
-                <img src="/images/cole.png" alt="Nicolas Cole" className="w-full h-[240px] md:h-[290px] object-cover object-top" />
+                <img src="/images/cole.png" alt="Nicolas Cole" className="w-full h-[220px] md:h-[260px] object-cover object-top" />
               </div>
+              <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Nicolas Cole</span>
             </div>
-            <div className="absolute right-0 top-10 w-[190px] md:w-[220px] rotate-2 z-20">
+            <div className="absolute right-0 top-6 w-[180px] md:w-[210px] rotate-3 z-20">
               <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
-                <img src="/images/dickie.png" alt="Dickie Bush" className="w-full h-[240px] md:h-[290px] object-cover object-top" />
+                <img src="/images/dickie.png" alt="Dickie Bush" className="w-full h-[220px] md:h-[260px] object-cover object-top" />
               </div>
               <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Dickie Bush</span>
             </div>
-            <span className="absolute left-0 top-[248px] md:top-[298px] w-[190px] md:w-[220px] -rotate-3 z-30 block font-sans text-[13px] text-white/60 text-center pointer-events-none">Nicolas Cole</span>
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[180px] md:w-[210px] -rotate-2 z-30">
+              <div className="bg-blue-dark rounded-lg overflow-hidden border border-white/15 shadow-lg shadow-black/40">
+                <img src="/images/daniel.png" alt="Daniel Bustamante" className="w-full h-[220px] md:h-[260px] object-cover object-top" />
+              </div>
+              <span className="block font-sans text-[13px] text-white/60 mt-2 text-center">Daniel Bustamante</span>
+            </div>
           </div>
         </div>
       </div>
@@ -336,6 +342,19 @@ function Instructors() {
               <p className="font-sans text-[11px] text-blue-dark font-bold uppercase tracking-wider mb-2">Co-Founder, Ship 30 for 30</p>
               <p className="font-sans text-[14px] text-dark/60 leading-relaxed">
                 Former Wall Street trader at BlackRock turned Digital Entrepreneur. Creator of Ship 30 for 30 &mdash; the fastest-growing cohort-based writing program on the internet. 10,000+ graduates and a digital product empire that followed.
+              </p>
+            </div>
+          </div>
+          {/* Daniel Bustamante */}
+          <div className="flex gap-4">
+            <div className="w-20 h-20 flex-shrink-0 overflow-hidden rounded-lg">
+              <img src="/images/daniel-headshot.png" alt="Daniel Bustamante" className="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h4 className="font-display text-[18px] text-dark uppercase">Daniel Bustamante</h4>
+              <p className="font-sans text-[11px] text-blue-dark font-bold uppercase tracking-wider mb-2">Co-Founder, Velocity</p>
+              <p className="font-sans text-[14px] text-dark/60 leading-relaxed">
+                Former CMO of Ship 30 for 30 and Premium Ghostwriting Academy. Helped scale Dickie and Cole's businesses to 10,000+ students, nearly 2,000 coaching clients, and $20M+ in revenue. Now Co-Founder of Velocity, the agency turning creators' audiences into recurring email revenue.
               </p>
             </div>
           </div>
@@ -584,7 +603,7 @@ function AIWritingSkool() {
    ═══════════════════════════════════════════════════════════ */
 function Pricing() {
   const valueItems = [
-    { name: '6 Live Sessions with Dickie Bush & Nicolas Cole', price: '$4,200' },
+    { name: '6 Live Sessions with Dickie Bush, Nicolas Cole & Daniel Bustamante', price: '$4,200' },
     { name: 'Session Replays + Slide Decks', price: '$200' },
     { name: 'Digital Product Templates Pack', price: '$99' },
     { name: 'BONUS: Product Idea Extraction Prompt', price: '$99' },
@@ -693,9 +712,9 @@ function FAQ() {
     { q: "Do I need an existing audience?", a: "No. Inside the bootcamp we walk you through the exact social content strategy we use to organically generate sales. If you have an audience, you'll monetize faster. If you don't, you'll learn the systems to start generating traffic and sales from scratch." },
     { q: "What kind of digital product will I build?", a: "In the first week, you'll build a $99 template \u2014 a simple, actionable digital asset that solves one specific problem. In the second week, you'll expand that into a $350 digital course with a full offer stack and bonus bundle." },
     { q: "I already have a digital product. Is this still for me?", a: "Absolutely. If you've tried creating a digital product before but didn't see results, the bootcamp will help you identify what went wrong and how to fix it. We've made all the same mistakes most creators make \u2014 the difference is we've figured out how to fix them." },
-    { q: "How is this different from the self-paced Low-Ticket Launchpad?", a: "The self-paced LTL is a bundle of mini-courses you work through on your own. Low-Ticket Launchpad Live is a 2-week live cohort where you build everything in real time with Dickie and Nicolas. Different format, much higher accountability \u2014 and you leave with a finished product." },
+    { q: "How is this different from the self-paced Low-Ticket Launchpad?", a: "The self-paced LTL is a bundle of mini-courses you work through on your own. Low-Ticket Launchpad Live is a 2-week live cohort where you build everything in real time with Dickie, Nicolas, and Daniel. Different format, much higher accountability \u2014 and you leave with a finished product." },
     { q: "Can't I just learn this for free?", a: "You could piece together snippets of information from across the internet and try to figure it all out yourself. But that would take hundreds of hours, and you'd still miss critical pieces. What we're offering is a complete, proven system that has generated over $15,000,000 in revenue." },
-    { q: "Is there a VIP option?", a: "Yes. A small-group VIP upgrade is available at $2,500 \u2014 direct access and personalized strategy from Dickie and Nicolas. Limited spots. Email us to inquire." },
+    { q: "Is there a VIP option?", a: "Yes. A small-group VIP upgrade is available at $2,500 \u2014 direct access and personalized strategy from Dickie, Nicolas, and Daniel. Limited spots. Email us to inquire." },
     { q: "How long do I have access?", a: "Lifetime. All replays, slide decks, templates, prompts, and bonuses are yours to keep forever." },
   ]
 
