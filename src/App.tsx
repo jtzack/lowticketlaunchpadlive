@@ -283,7 +283,7 @@ function HowItWorks() {
     <section className="bg-black py-16 md:py-24 px-5 md:px-6">
       <div className="max-w-wide mx-auto">
         <div className="w-20 h-[2px] bg-blue mx-auto mb-8" />
-        <h2 className="font-display text-[clamp(28px,4vw,44px)] text-white uppercase text-center leading-[0.95] mb-4">
+        <h2 className="font-display text-[clamp(20px,5.5vw,44px)] text-white uppercase text-center leading-[0.95] mb-4 whitespace-nowrap">
           What Is Low-Ticket Launchpad LIVE?
         </h2>
         <p className="font-sans text-[15px] text-white/50 leading-relaxed mb-12 max-w-[620px] mx-auto text-center">
