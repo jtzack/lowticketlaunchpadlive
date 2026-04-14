@@ -627,7 +627,7 @@ function AIWritingSkool() {
     <section className="bg-dark py-16 md:py-24 px-5 md:px-6">
       <div className="max-w-page mx-auto">
         <p className="font-sans text-[11px] font-bold text-blue uppercase tracking-[0.2em] mb-3">Included Free</p>
-        <h2 className="font-display text-[clamp(28px,4vw,44px)] text-cream uppercase leading-[0.95] mb-3">
+        <h2 className="font-display text-[clamp(20px,5.5vw,44px)] text-cream uppercase leading-[0.95] mb-3 whitespace-nowrap">
           Free 30-Day Trial To AI Writing Skool
         </h2>
         <div className="w-full h-px bg-white/10 mb-10" />
